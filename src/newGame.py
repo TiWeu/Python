@@ -2,7 +2,7 @@
 Platformer Game
 """
 import arcade
-
+import os
 # Constants
 SCREEN_WIDTH = 1280
 SCREEN_HEIGHT = 680
@@ -28,7 +28,10 @@ PLAYER_START_Y = 1500
 RIGHT_FACING = 0
 LEFT_FACING = 1
 
-
+file_path = os.path.dirname(os.path.abspath(__file__))
+os.chdir(file_path)
+os.chdir("../")
+file_path = os.getcwd()
 
 # Layer Names from our TileMap
 
@@ -70,7 +73,7 @@ class PlayerCharacter(arcade.Sprite):
         # --- Load Textures ---
 
         # Images from Kenney.nl's Asset Pack 3
-        main_path = "../images/player/"
+        main_path = f"{file_path}/Images/player/"
 
         # Load textures for idle standing
         self.idle_texture_pair = load_texture_pair(f"{main_path}walk3.png")
@@ -180,8 +183,8 @@ class MyGame(arcade.Window):
 
         # Load sounds
 
-        self.jump_sound = arcade.load_sound(":resources:sounds/jump1.wav")
-        self.game_over = arcade.load_sound(":resources:sounds/gameover1.wav")
+        self.jump_sound = arcade.load_sound(f"{file_path}/sounds/jump1.wav")
+        self.game_over = arcade.load_sound(f"{file_path}/sounds/gameover1.wav")
 
     def setup(self):
         """Set up the game here. Call this function to restart the game."""
@@ -195,7 +198,7 @@ class MyGame(arcade.Window):
 
         # Map name
 
-        map_name = "C:\\Users\\till-\\Tiled_Workspace\\OwnGame\\newGame\\newMap.json"
+        map_name = f"{file_path}/maps/newMap.json"
 
 
 
