@@ -70,7 +70,7 @@ class PlayerCharacter(arcade.Sprite):
         # --- Load Textures ---
 
         # Images from Kenney.nl's Asset Pack 3
-        main_path = "C:\\Users\\till-\\Tiled_Workspace\\OwnGame\\Images\Player\\"
+        main_path = "../images/player/"
 
         # Load textures for idle standing
         self.idle_texture_pair = load_texture_pair(f"{main_path}walk3.png")
@@ -80,7 +80,7 @@ class PlayerCharacter(arcade.Sprite):
         # Load textures for walking
         self.walk_textures = []
         for i in range(1,6):
-            texture = load_texture_pair(f"C:\\Users\\till-\\Tiled_Workspace\\OwnGame\\Images\\Player\\walk{i}.png")
+            texture = load_texture_pair(f"{main_path}walk{i}.png")
             self.walk_textures.append(texture)
 
         # Load textures for climbing
